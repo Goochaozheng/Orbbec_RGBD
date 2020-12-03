@@ -1,0 +1,40 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Build with opencv & orbbec openni",
+            "command": "/usr/bin/g++",
+            "args": [
+                "*.cpp",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-I dir",
+                "-I/usr/include/opencv4/opencv",
+                "-I/usr/include/opencv4",
+                "-I/media/gchaozheng/codes/Libs/OpenNI-Linux-x64-2.3/Include", //Orbbec OpenNI2 headers
+                "-lopencv_rgbd",
+                "-lopencv_imgproc",
+                "-lopencv_calib3d",
+                "-lopencv_highgui",
+                "-lopencv_viz",
+                "-lopencv_core",
+                "-lopencv_imgcodecs",
+                "-lopencv_videoio",
+                "-lOpenNI2",
+                "-L.", //Redist files should be copied to current directory
+                "-Wl,-rpath ." //Specify runtime lib path
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
